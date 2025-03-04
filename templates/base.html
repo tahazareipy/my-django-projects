@@ -1,0 +1,87 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>گیاه‌لند</title>
+    <!-- css file -->
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+
+    <!-- bootstrap icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <article class="nav-right">
+        <div class="nav-toggle">
+          <div class="icon">
+            <i class="bi bi-list"></i>
+          </div>
+          <h2>گیاه‌لند</h2>
+        </div>
+
+        <ul class="nav-lists">
+          <li class="nav-list">
+            <a href="{% url 'base' %}" class="active nav-link">صفحه‌اصلی</a>
+          </li>
+          <li class="nav-list"><a href="#" class="nav-link">گیاه‌پزشک</a></li>
+          <li class="nav-list"><a href="#" class="nav-link">وبلاگ</a></li>
+          <li class="nav-list"><a href="#" class="nav-link">درباره‌ما</a></li>
+          <li class="nav-list"><a href="#" class="nav-link">تماس با ما</a></li>
+        </ul>
+      </article>
+      <!--  -->
+      <article class="nav-left">
+        <button class="btn-nav seacrh-btn-nav">
+          <i class="bi bi-search"></i>
+        </button>
+        <button class="btn-nav">
+          <i class="bi bi-cart2"></i>
+        </button>
+        {% if user.is_authenticated %}
+        <!--user-->
+        <ul class="profile">
+           <li>Hi<a> {{user.username}}</a>
+          </li>
+        </ul>
+        <!-- دکمه خروج --> 
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn-nav">
+            <i class="bi bi-box-arrow-in-left"></i>
+            <strong>خروج</strong>
+          </button>
+        </form>
+        {% else %}
+        <!-- دکمه ورود --> 
+        <a href="{% url 'login' %}" class="btn-nav"> 
+          <i class="bi bi-box-arrow-in-right"></i> 
+          <strong> ورود </strong> 
+        </a> <!-- دکمه ثبت‌نام --> 
+        <a href="{% url 'signup' %}" class="btn-nav"> 
+          <i class="bi bi-person-plus"></i> 
+          <strong> ثبت‌نام </strong> 
+        </a>
+        {% endif %}
+      </article>
+      <!--  -->
+      <article class="nav-search">
+        <input type="search" name="search" placeholder="جستجوی‌گیاه" />
+        <div class="search-input-nav">
+          <i class="bi bi-search"></i>
+        </div>
+      </article>
+
+      <div class="underline"></div>
+    </nav>
+    {% block content %}
+    
+    {% endblock content %}
+    <script src='{% static "scripts.js" %}' ></script>
+  </body>
+</html>

@@ -1,0 +1,200 @@
+@font-face {
+    font-family: vazir;
+    font-weight: 950;
+    src: url("static/font/vazir/Vazir-Bold.ttf")format("ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    direction: rtl;
+    font-family: 'Vazir', sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.signup-img {
+    flex: 1;
+    background: #f0f0ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.signup-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.signup-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    background: #fff;
+    direction: rtl;
+}
+
+h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-family: 'Vazir-Bold', sans-serif;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid #00000068;
+    border-radius: 10px;
+    padding: 0.8rem;
+    position: relative;
+    transition: all 0.3s ease;
+    
+}
+
+.input-group:focus-within {
+    border-color: #063f00;
+    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.2);
+    border-color: #00ff15;
+}
+
+.input-group label {
+    padding: 0 0.8rem;
+    color: #777;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+}
+
+.toggle-password {
+    position: absolute;
+    left: 15px;
+    cursor: pointer;
+    color: #777;
+    transition: color 0.3s ease;
+    
+}
+
+.toggle-password:hover {
+    color: #33ff00;
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(45deg, #0d4d00, #174900);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(29, 248, 0, 0.2);
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #06b300, #11cc00);
+    box-shadow: 0 6px 8px rgba(0, 255, 13, 0.3);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.login-link a {
+    color: #00ff15;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: #06b300;
+}
+.sub_title{
+    color: black;
+    font-size: large;
+    font-weight: bold;
+    padding: 4px;
+    
+}
+/* رسپانسیو برای موبایل */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .signup-img {
+        order: 1;
+        height: 10ک0px;
+    }
+
+    .signup-form {
+        order: 2;
+        padding: 2rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    .toggle-password {
+        left: 10px;
+    }
+}
+
+/* رسپانسیو برای تبلت */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .signup-form {
+        padding: 2rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+}
