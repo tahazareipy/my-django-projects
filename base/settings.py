@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'app2',
     'app1',
+    'cart_app',
 ]
 
 AUTH_USER_MODEL = 'app2.CustomUser'
@@ -68,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart_app.context_processors.cart',
             ],
         },
     },

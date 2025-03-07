@@ -1,18 +1,38 @@
+<!-- products.html -->
 {% load humanize %}
-
 {% for category in categories %}
-  {% for product in category.products.all %}
-    <article class="card">
-      <figure class="card-img">
-        <img src="{{ product.img.url }}" alt="{{ product.name }}" />
-      </figure>
-      <div class="card-info">
-        <h4>گیاه طبیعی {{ product.name }}</h4>
-        <strong>قیمت: <span>{{product.price | intcomma }} تومان</span></strong>
-      </div>
-      <a class="btn" href="#">مشاهده بیشتر</a>
-    </article>
-    {%empty%}
-    <p class="no-product">هیچ محصولی در این دسته‌بندی وجود ندارد.</p>
+  {% if category.name == category_name %}
+    {% for product in category.products.all %}
+      {% if product.is_sale %}
+      <article class="card">
+        <figure class="card-img">
+          <img src="{{ product.img.url }}" alt="{{ product.name }}" />
+        </figure>
+        <div class="card-info">
+          <h4>گیاه طبیعی {{ product.name }}</h4>
+          <strong>قیمت: 
+            <span>
+              <strike>{{ product.price | intcomma }}</strike> 
+              <br>
+            {{ product.sale_price | intcomma }} تومان 
+            </span>
+
+          </strong>
+        </div>
+        <a class="btn" href="{% url 'id-product' product.id %}">مشاهده بیشتر</a>
+      </article>
+      {% else %}
+      <article class="card">
+        <figure class="card-img">
+          <img src="{{ product.img.url }}" alt="{{ product.name }}" />
+        </figure>
+        <div class="card-info">
+          <h4>گیاه طبیعی {{ product.name }}</h4>
+          <strong>قیمت: <span>{{ product.price | intcomma }} تومان</span></strong>
+        </div>
+        <a class="btn" href="{% url 'id-product' product.id %}">مشاهده بیشتر</a>
+      </article>
+      {% endif %}
     {% endfor %}
+  {% endif %}
 {% endfor %}

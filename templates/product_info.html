@@ -1,0 +1,27 @@
+
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+</head>
+<body>
+    
+    {% if product.is_sale %}
+        <h1>{{ product.name }}</h1>
+        <img src="{{ product.img.url }}" alt="{{ product.name }}" />
+        <p>قیمت: {{ product.sale_price | intcomma }} تومان</p>
+        <p>دسته‌بندی: {{ product.category.name }}</p>
+        <a href="{% url 'base' %}">بازگشت به صفحه اصلی</a>
+        {% else %}
+        <h1>{{ product.name }}</h1>
+        <img src="{{ product.img.url }}" alt="{{ product.name }}" />
+        <p>قیمت: {{ product.price | intcomma }} تومان</p>
+        <p>دسته‌بندی: {{ product.category.name }}</p>
+        <a href="{% url 'base' %}">بازگشت به صفحه اصلی</a>
+    {% endif %}
+        
+</body>
+</html>

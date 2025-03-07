@@ -5,8 +5,8 @@ from django.core.exceptions import ValidationError
 from .models import CustomUser
 
 class CustomUserCreationForm(UserCreationForm):
-    # email = forms.EmailField(required=True)
-    # phone = forms.CharField(max_length=11, required=True)
+    email = forms.EmailField(required=True)
+    phone = forms.CharField(max_length=11, required=True)
     class Meta:
         model = CustomUser
         fields = ('email', 'phone','password1','password2')
