@@ -1,27 +1,45 @@
-
+{% extends "base.html" %}
+{% load static %}
 {% load humanize %}
+{% block content %}
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}"> 
+    <link rel="stylesheet" href="{% static 'info_product.css' %}">
     <title>{{ product.name }}</title>
 </head>
 <body>
-    
-    {% if product.is_sale %}
-        <h1>{{ product.name }}</h1>
-        <img src="{{ product.img.url }}" alt="{{ product.name }}" />
-        <p>قیمت: {{ product.sale_price | intcomma }} تومان</p>
-        <p>دسته‌بندی: {{ product.category.name }}</p>
-        <a href="{% url 'base' %}">بازگشت به صفحه اصلی</a>
+    <div class="info">
+        {% if product.is_sale %}
+        <div class="img">
+            <img src="{{ product.img.url }}" alt="{{ product.name }}" />
+        </div>
+        <div class="details">
+            <h1 class="name">{{ product.name }}</h1>
+            <p class="price">قیمت: {{ product.sale_price | intcomma }} تومان</p>
+            <p class="category">دسته‌بندی: {{ product.category.name }}</p>
+        </div>
         {% else %}
-        <h1>{{ product.name }}</h1>
-        <img src="{{ product.img.url }}" alt="{{ product.name }}" />
-        <p>قیمت: {{ product.price | intcomma }} تومان</p>
-        <p>دسته‌بندی: {{ product.category.name }}</p>
-        <a href="{% url 'base' %}">بازگشت به صفحه اصلی</a>
-    {% endif %}
-        
+        <div class="img">
+            <img src="{{ product.img.url }}" alt="{{ product.name }}" />
+        </div>
+        <div class="details">
+            <h1 class="name">{{ product.name }}</h1>
+            <p class="price">قیمت: {{ product.price | intcomma }} تومان</p>
+            <p class="category">دسته‌بندی: {{ product.category.name }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <div class="buttons">
+        <button class="btn btn-secondary" type="button" id="add-cart" data-product-id="{{ product.id }}">
+            افزودن به سبد خرید
+        </button>
+        <a class="btn btn-secondary" href="{% url 'base' %}">بازگشت به صفحه اصلی</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
+{% endblock content %}

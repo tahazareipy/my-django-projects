@@ -26,3 +26,4 @@ function startCount(id, target) {
     "DOMContentLoaded",
     startCount("current3", 554)
   );
+

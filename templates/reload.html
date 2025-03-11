@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گلخانه آنلاین - به زودی باز میگردیم</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #e8f5e9;
+            text-align: center;
+            padding: 50px;
+            line-height: 1.6;
+            color: #2e7d32;
+            background-image: linear-gradient(to bottom right, #f1f8e9, #c8e6c9);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(46, 125, 50, 0.1);
+            border: 2px solid #81c784;
+        }
+
+        h1 {
+            color: #1b5e20;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 3px rgba(129, 199, 132, 0.3);
+        }
+
+        .icon {
+            font-size: 100px;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #388e3c;
+        }
+
+        .newsletter {
+            margin: 40px auto;
+            max-width: 500px;
+        }
+
+        input[type="email"] {
+            padding: 12px;
+            width: 70%;
+            border: 2px solid #81c784;
+            border-radius: 25px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 30px;
+            background: #43a047;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #2e7d32;
+        }
+
+        .leaf-border {
+            position: relative;
+            margin: 30px 0;
+        }
+        .leaf-border :hover{
+            opacity: 100%;
+        }
+        .leaf-border::before {
+            content: "🍀 🍃 🌸 🍀 🍃 🌸";
+            opacity: 0.3;
+            font-size: 24px;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .social-links a {
+            color: #2e7d32;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🌱</div>
+        <h1>گلخانه ما در حال رشد است!</h1>
+        
+        <p>
+            دوستان گل دوست عزیز 🌸<br>
+            در حال آماده سازی بهترین مجموعه گل و گیاه آنلاین هستیم<br>
+            به زودی با انبوهی از گلهای تازه و گیاهان خاص برمیگردیم
+        </p>
+
+        <div class="leaf-border"></div>
+
+        <div class="newsletter">
+            <p>برای اطلاع از شروع به کار ما ایمیل خود را ثبت کنید:</p>
+            <input type="email" placeholder="ایمیل شما...">
+            <button>ثبت نام</button>
+        </div>
+
+        <div class="social-links">
+            <a href="#" title="اینستاگرام">📷</a>
+            <a href="#" title="تلگرام">📨</a>
+            <a href="#" title="واتساپ">📱</a>
+        </div>
+    </div>
+</body>
+</html>
